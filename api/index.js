@@ -1,9 +1,5 @@
-import express from 'express';
-import cors from 'cors';
 import pkg from 'pg';
 const { Pool } = pkg;
-
-const app = express();
 
 // Database connection
 const pool = new Pool({
@@ -13,91 +9,65 @@ const pool = new Pool({
     }
 });
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+export default async function handler(req, res) {
+    // Enable CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-// API Routes
-
-// Get hero content
-app.get('/api/hero', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM hero LIMIT 1');
-        res.json(result.rows[0] || {});
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
     }
-});
 
-// Get about content
-app.get('/api/about', async (req, res) => {
+    const { path } = req.query;
+    const endpoint = path ? path.join('/') : '';
+
     try {
-        const result = await pool.query('SELECT * FROM about LIMIT 1');
-        res.json(result.rows[0] || {});
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        // Route handling
+        if (endpoint === 'hero' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM hero LIMIT 1');
+            return res.json(result.rows[0] || {});
+        }
 
-// Get all services
-app.get('/api/services', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM services ORDER BY id');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        if (endpoint === 'about' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM about LIMIT 1');
+            return res.json(result.rows[0] || {});
+        }
 
-// Get all projects
-app.get('/api/projects', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM projects ORDER BY id');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        if (endpoint === 'services' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM services ORDER BY id');
+            return res.json(result.rows);
+        }
 
-// Get contact info
-app.get('/api/contact', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM contact_info LIMIT 1');
-        res.json(result.rows[0] || {});
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        if (endpoint === 'projects' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM projects ORDER BY id');
+            return res.json(result.rows);
+        }
 
-// Get gallery images for About section
-app.get('/api/gallery', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM about_gallery ORDER BY display_order');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        if (endpoint === 'contact' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM contact_info LIMIT 1');
+            return res.json(result.rows[0] || {});
+        }
 
-// Submit contact form
-app.post('/api/contact/submit', async (req, res) => {
-    try {
-        const { name, email, project_type, message } = req.body;
-        const result = await pool.query(
-            'INSERT INTO contact_submissions (name, email, project_type, message) VALUES ($1, $2, $3, $4) RETURNING *',
-            [name, email, project_type, message]
-        );
-        res.json({ success: true, data: result.rows[0] });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+        if (endpoint === 'gallery' && req.method === 'GET') {
+            const result = await pool.query('SELECT * FROM about_gallery ORDER BY display_order');
+            return res.json(result.rows);
+        }
 
-export default app;
+        if (endpoint === 'contact/submit' && req.method === 'POST') {
+            const { name, email, project_type, message } = req.body;
+            const result = await pool.query(
+                'INSERT INTO contact_submissions (name, email, project_type, message) VALUES ($1, $2, $3, $4) RETURNING *',
+                [name, email, project_type, message]
+            );
+            return res.json({ success: true, data: result.rows[0] });
+        }
+
+        // 404 for unknown routes
+        return res.status(404).json({ error: 'Not found' });
+
+    } catch (err) {
+        console.error('API Error:', err);
+        return res.status(500).json({ error: 'Server error', details: err.message });
+    }
+}
