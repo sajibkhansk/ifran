@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import heroImg from '../assets/hero.jpeg';
+import heroImg from '../assets/Hero.jpeg';
 import { fetchHero } from '../api/client';
 
 const Hero = () => {
