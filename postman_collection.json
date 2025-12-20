@@ -1,0 +1,608 @@
+{
+    "info": {
+        "name": "Dematric Architects - Admin API",
+        "description": "Complete CRUD operations for all database tables",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Hero",
+            "item": [
+                {
+                    "name": "Get All Hero Records",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/hero",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "hero"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Single Hero Record",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/hero/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "hero",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Hero Record",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"company_name\": \"Dematric Architects\",\n  \"main_title\": \"Real Reflection\",\n  \"subtitle\": \"Of Thought.\",\n  \"description\": \"We don't just design buildings; we architect visions.\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/hero",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "hero"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Hero Record",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"company_name\": \"Dematric Architects\",\n  \"main_title\": \"Updated Title\",\n  \"subtitle\": \"Updated Subtitle\",\n  \"description\": \"Updated description\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/hero/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "hero",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Hero Record",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/hero/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "hero",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Services",
+            "item": [
+                {
+                    "name": "Get All Services",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/services",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "services"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Single Service",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/services/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "services",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Service",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"icon\": \"Home\",\n  \"title\": \"New Service\",\n  \"description\": \"This is a new service\",\n  \"display_order\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/services",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "services"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Service",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"icon\": \"Building2\",\n  \"title\": \"Updated Service\",\n  \"description\": \"Updated description\",\n  \"display_order\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/services/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "services",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Service",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/services/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "services",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Projects",
+            "item": [
+                {
+                    "name": "Get All Projects",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/projects",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "projects"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Single Project",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/projects/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "projects",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Project",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Modern Office Complex\",\n  \"category\": \"Commercial\",\n  \"image_url\": \"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab\",\n  \"description\": \"A stunning modern office\",\n  \"display_order\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/projects",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "projects"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Project",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Updated Project\",\n  \"category\": \"Residential\",\n  \"image_url\": \"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9\",\n  \"description\": \"Updated description\",\n  \"display_order\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/projects/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "projects",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Project",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/projects/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "projects",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Contact Info",
+            "item": [
+                {
+                    "name": "Get All Contact Info",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/contact-info",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "contact-info"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Contact Info",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Get In Touch\",\n  \"subtitle\": \"We would love to hear from you\",\n  \"email\": \"contact@dematric.com\",\n  \"phone\": \"+1 (555) 123-4567\",\n  \"address\": \"123 Design Street, NY\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/contact-info/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "contact-info",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Contact Submissions",
+            "item": [
+                {
+                    "name": "Get All Submissions",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/contact-submissions",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "contact-submissions"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Submission",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/contact-submissions/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "contact-submissions",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Gallery",
+            "item": [
+                {
+                    "name": "Get All Gallery Images",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/gallery",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "gallery"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Gallery Image",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"image_url\": \"https://images.unsplash.com/photo-1487958444681-8b97e3d67cc2\",\n  \"alt_text\": \"Beautiful architecture\",\n  \"display_order\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/gallery",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "gallery"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Utilities",
+            "item": [
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/health",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "health"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Tables",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/tables",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "tables"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Table Schema",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:5002/api/admin/schema/services",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5002",
+                            "path": [
+                                "api",
+                                "admin",
+                                "schema",
+                                "services"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
